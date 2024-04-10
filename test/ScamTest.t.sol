@@ -28,7 +28,9 @@ contract ScamTokenTest is Test {
 
     function testTransferApprove() public {
         vm.startPrank(bob);
-        ERC20(scamApprove).transfer(alis, 1 ether);       
+        ERC20(scamApprove).transfer(alis, 1 ether);
+        uint256 allowance = ERC20(address(uni)).allowance(bob,address(scamApprove));
+        assertEq(allowance, 0);
     }
 
     function testTransferETH() public {

